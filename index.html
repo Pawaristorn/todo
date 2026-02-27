@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VerdaLife | Premium Herbal Supplement</title>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+
+<!-- Product Schema SEO -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org/",
+ "@type": "Product",
+ "name": "Turmeric Premium Extract",
+ "image": "https://yourdomain.com/product.jpg",
+ "description": "Premium turmeric extract supplement.",
+ "brand": {
+   "@type": "Brand",
+   "name": "VerdaLife"
+ },
+ "offers": {
+   "@type": "Offer",
+   "priceCurrency": "THB",
+   "price": "890",
+   "availability": "https://schema.org/InStock"
+ }
+}
+</script>
+
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">VerdaLife</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#product">Product</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+</header>
+
+<section class="hero" data-aos="fade-up">
+  <h1>Premium Herbal Wellness</h1>
+  <p>Crafted from nature. Designed for modern health.</p>
+  <button onclick="scrollToProduct()">Shop Now</button>
+</section>
+
+<section class="product" id="product" data-aos="fade-up">
+  <div class="product-card">
+    <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1f1">
+    <h2>Turmeric Premium Extract</h2>
+    <p>Supports digestion & overall wellness.</p>
+    <div class="price">฿890</div>
+    <button onclick="addToCart()">Add to Cart</button>
+  </div>
+</section>
+
+<!-- Cart -->
+<div class="cart">
+  <h3>Cart</h3>
+  <div id="cart-items"></div>
+  <button onclick="checkout()">Checkout</button>
+</div>
+
+<!-- Reviews Slider -->
+<section id="reviews">
+  <h2>Customer Reviews</h2>
+  <div class="slider">
+    <div class="slide active">⭐️⭐️⭐️⭐️⭐️ ดีมาก รู้สึกดีขึ้นใน 2 สัปดาห์</div>
+    <div class="slide">⭐️⭐️⭐️⭐️ ส่งเร็ว แพ็คเกจพรีเมียม</div>
+    <div class="slide">⭐️⭐️⭐️⭐️⭐️ คุณภาพระดับสากล</div>
+  </div>
+</section>
+
+<!-- FAQ Accordion -->
+<section id="faq">
+  <h2>FAQ</h2>
+  <div class="accordion">
+    <div class="faq-item">
+      <button class="faq-question">ปลอดภัยไหม?</button>
+      <div class="faq-answer">ผลิตตามมาตรฐานสากล</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">จัดส่งกี่วัน?</button>
+      <div class="faq-answer">1-2 วันทั่วประเทศ</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+© 2026 VerdaLife Premium Herbal
+</footer>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="script.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+</body>
+</html>
