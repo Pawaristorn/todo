@@ -1,105 +1,238 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>VerdaLife | Premium Herbal Supplement</title>
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
-
-<!-- Product Schema SEO -->
-<script type="application/ld+json">
-{
- "@context": "https://schema.org/",
- "@type": "Product",
- "name": "Turmeric Premium Extract",
- "image": "https://yourdomain.com/product.jpg",
- "description": "Premium turmeric extract supplement.",
- "brand": {
-   "@type": "Brand",
-   "name": "VerdaLife"
- },
- "offers": {
-   "@type": "Offer",
-   "priceCurrency": "THB",
-   "price": "890",
-   "availability": "https://schema.org/InStock"
- }
-}
-</script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripStyle Hotels</title>
+  <style>
+    :root {
+      --green: #00aa6c;
+      --dark: #111827;
+      --muted: #6b7280;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans Thai", system-ui, -apple-system, sans-serif;
+      color: var(--dark);
+      background: var(--bg);
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .brand { font-weight: 800; font-size: 1.2rem; }
+    .brand span { color: var(--green); }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .search-box {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr auto;
+      gap: 10px;
+      background: #fff;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+    .search-box input, .search-box button {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: .95rem;
+    }
+    .search-box button {
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 16px;
+    }
+    .panel, .hotel-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+    .panel { padding: 14px; height: fit-content; }
+    .panel h3 { margin-top: 0; font-size: 1rem; }
+    .panel label { display: block; margin-bottom: 8px; color: var(--muted); }
+    .hotel-list { display: grid; gap: 14px; }
+    .hotel-card {
+      display: grid;
+      grid-template-columns: 260px 1fr 130px;
+      gap: 12px;
+      overflow: hidden;
+    }
+    .hotel-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+    .hotel-main { padding: 12px 4px 12px 0; }
+    .hotel-main h4 { margin: 2px 0 8px; }
+    .meta { color: var(--muted); font-size: .9rem; margin-bottom: 8px; }
+    .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge {
+      background: #ecfdf5;
+      color: #065f46;
+      border-radius: 999px;
+      font-size: .78rem;
+      padding: 4px 8px;
+    }
+    .hotel-side {
+      border-left: 1px solid var(--border);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      text-align: right;
+    }
+    .score {
+      background: var(--green);
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .price { font-size: 1.3rem; font-weight: 800; }
+    .hotel-side button {
+      width: 100%;
+      border: none;
+      background: var(--dark);
+      color: #fff;
+      border-radius: 10px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    @media (max-width: 900px) {
+      .search-box { grid-template-columns: 1fr 1fr; }
+      .layout { grid-template-columns: 1fr; }
+      .hotel-card { grid-template-columns: 1fr; }
+      .hotel-card img { height: 220px; }
+      .hotel-side { border-left: none; border-top: 1px solid var(--border); align-items: stretch; text-align: left; }
+    }
+  </style>
 </head>
 <body>
+  <header class="topbar">
+    <div class="brand">Trip<span>Style</span></div>
+    <small>โรงแรมยอดนิยมจากนักเดินทาง</small>
+  </header>
 
-<header class="navbar">
-  <div class="logo">VerdaLife</div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#product">Product</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#faq">FAQ</a>
-  </nav>
-</header>
+  <main class="container">
+    <section class="search-box">
+      <input id="city" type="text" placeholder="เมืองหรือสถานที่ (เช่น กรุงเทพฯ)" value="กรุงเทพฯ" />
+      <input id="checkin" type="date" />
+      <input id="checkout" type="date" />
+      <button onclick="searchHotels()">ค้นหา</button>
+    </section>
 
-<section class="hero" data-aos="fade-up">
-  <h1>สวัสดีปีใหม่ไทยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยย</h1>
-  <p>555555555555555555555555555555555555555555555555555555</p>
-  <button onclick="scrollToProduct()">Shop Now</button>
-</section>
+    <section class="layout">
+      <aside class="panel">
+        <h3>ตัวกรอง</h3>
+        <label><input type="checkbox" checked /> อาหารเช้าฟรี</label>
+        <label><input type="checkbox" checked /> ยกเลิกฟรี</label>
+        <label><input type="checkbox" /> สระว่ายน้ำ</label>
+        <label><input type="checkbox" /> ใกล้รถไฟฟ้า</label>
+      </aside>
 
-<section class="product" id="product" data-aos="fade-up">
-  <div class="product-card">
-    <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1f1">
-    <h2>Turmeric Premium Extract</h2>
-    <p>Supports digestion & overall wellness.</p>
-    <div class="price">฿890</div>
-    <button onclick="addToCart()">Add to Cart</button>
-  </div>
-</section>
+      <div>
+        <p id="result-text" class="meta">พบโรงแรม 3 แห่ง ใน กรุงเทพฯ</p>
+        <div class="hotel-list" id="hotel-list"></div>
+      </div>
+    </section>
+  </main>
 
-<!-- Cart -->
-<div class="cart">
-  <h3>Cart</h3>
-  <div id="cart-items"></div>
-  <button onclick="checkout()">ซื้ออออออออออออออออออออออออออออออออออออออออออออออออออ</button>
-</div>
+  <script>
+    const hotels = [
+      {
+        name: "Siam Riverside Hotel",
+        area: "ริมแม่น้ำเจ้าพระยา • 1.2 กม. จากใจกลางเมือง",
+        score: 9.1,
+        review: "ยอดเยี่ยม",
+        price: 2450,
+        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop",
+        badges: ["อาหารเช้าฟรี", "ยกเลิกฟรี"]
+      },
+      {
+        name: "Metro Grand Sukhumvit",
+        area: "สุขุมวิท • ติด BTS",
+        score: 8.6,
+        review: "ดีมาก",
+        price: 1890,
+        image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=1200&auto=format&fit=crop",
+        badges: ["ใกล้รถไฟฟ้า", "ฟิตเนส"]
+      },
+      {
+        name: "Old Town Heritage Stay",
+        area: "พระนคร • ย่านเมืองเก่า",
+        score: 8.9,
+        review: "น่าประทับใจ",
+        price: 1690,
+        image: "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=1200&auto=format&fit=crop",
+        badges: ["บูติกโฮเทล", "Wi‑Fi ฟรี"]
+      }
+    ];
 
-<!-- Reviews Slider -->
-<section id="reviews">
-  <h2>Customer Reviews</h2>
-  <div class="slider">
-    <div class="slide active">⭐️⭐️⭐️⭐️⭐️ ดีมาก รู้สึกดีขึ้นใน 2 สัปดาห์</div>
-    <div class="slide">⭐️⭐️⭐️⭐️ ส่งเร็ว แพ็คเกจพรีเมียม</div>
-    <div class="slide">⭐️⭐️⭐️⭐️⭐️ คุณภาพระดับสากล</div>
-  </div>
-</section>
+    function renderHotels(list) {
+      const root = document.getElementById("hotel-list");
+      root.innerHTML = list.map(h => `
+        <article class="hotel-card">
+          <img src="${h.image}" alt="${h.name}" />
+          <div class="hotel-main">
+            <h4>${h.name}</h4>
+            <div class="meta">${h.area}</div>
+            <div class="badges">${h.badges.map(b => `<span class="badge">${b}</span>`).join("")}</div>
+          </div>
+          <div class="hotel-side">
+            <div>
+              <div class="score">${h.score}</div>
+              <div class="meta" style="margin-top:6px;">${h.review}</div>
+            </div>
+            <div>
+              <div class="meta">เริ่มต้น/คืน</div>
+              <div class="price">฿${h.price.toLocaleString()}</div>
+              <button>ดูราคา</button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
 
-<!-- FAQ Accordion -->
-<section id="faq">
-  <h2>FAQ</h2>
-  <div class="accordion">
-    <div class="faq-item">
-      <button class="faq-question">ปลอดภัยไหม?</button>
-      <div class="faq-answer">ผลิตตามมาตรฐานสากล</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">จัดส่งกี่วัน?</button>
-      <div class="faq-answer">1-2 วันทั่วประเทศ</div>
-    </div>
-  </div>
-</section>
+    function searchHotels() {
+      const city = document.getElementById("city").value.trim() || "ทุกพื้นที่";
+      document.getElementById("result-text").textContent = `พบโรงแรม ${hotels.length} แห่ง ใน ${city}`;
+      renderHotels(hotels);
+    }
 
-<footer>
-© 2026 VerdaLife Premium Herbal
-</footer>
-
-<script src="https://js.stripe.com/v3/"></script>
-<script src="script.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-
+    const today = new Date();
+    const tomorrow = new Date(Date.now() + 86400000);
+    document.getElementById("checkin").valueAsDate = today;
+    document.getElementById("checkout").valueAsDate = tomorrow;
+    renderHotels(hotels);
+  </script>
 </body>
-
 </html>
-
