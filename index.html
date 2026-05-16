@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="description" content="VerdaLife ผลิตภัณฑ์เสริมอาหารสารสกัดขมิ้นชันระดับพรีเมี่ยม สำหรับการดูแลสุขภาพอย่างมืออาชีพ">
 <title>VerdaLife | Premium Herbal Supplement</title>
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
 <!-- Product Schema SEO -->
 <script type="application/ld+json">
@@ -14,8 +15,8 @@
  "@context": "https://schema.org/",
  "@type": "Product",
  "name": "Turmeric Premium Extract",
- "image": "https://yourdomain.com/product.jpg",
- "description": "Premium turmeric extract supplement.",
+ "image": "https://images.unsplash.com/photo-1585386959984-a4155224a1f1",
+ "description": "Premium turmeric extract supplement for daily wellness support.",
  "brand": {
    "@type": "Brand",
    "name": "VerdaLife"
@@ -29,77 +30,398 @@
 }
 </script>
 
+<style>
+:root {
+  --forest: #0f3d2e;
+  --forest-2: #16533f;
+  --sage: #dfead7;
+  --mint: #f3f8ef;
+  --gold: #c99a3a;
+  --gold-2: #f0d28a;
+  --ink: #13241d;
+  --muted: #6a7a70;
+  --white: #ffffff;
+  --shadow: 0 24px 70px rgba(15, 61, 46, .16);
+  --radius-xl: 32px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Noto Sans Thai", system-ui, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(240, 210, 138, .24), transparent 34rem),
+    linear-gradient(180deg, #fbfff8 0%, #f4f8ef 46%, #fff 100%);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(15,61,46,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(15,61,46,.045) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, #000, transparent 70%);
+}
+
+.container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+.eyebrow { color: var(--gold); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; }
+.section-title { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; margin: 10px 0 14px; }
+.section-lead { color: var(--muted); font-size: 1.08rem; max-width: 680px; margin: 0 auto 36px; }
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(18px);
+  background: rgba(255,255,255,.76);
+  border-bottom: 1px solid rgba(15,61,46,.08);
+}
+.navbar-inner { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 900; color: var(--forest); font-size: 1.35rem; }
+.logo-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 14px; background: linear-gradient(135deg, var(--forest), #2d7f5c); color: var(--gold-2); box-shadow: 0 12px 30px rgba(15,61,46,.2); }
+nav { display: flex; align-items: center; gap: 8px; }
+nav a { color: var(--muted); text-decoration: none; font-weight: 700; padding: 10px 14px; border-radius: 999px; transition: .2s; }
+nav a:hover { color: var(--forest); background: rgba(15,61,46,.08); }
+.nav-cta { border: 1px solid rgba(201,154,58,.36); color: var(--forest); background: rgba(240,210,138,.16); }
+
+.hero { padding: 72px 0 56px; }
+.hero-grid { display: grid; grid-template-columns: 1.04fr .96fr; gap: 54px; align-items: center; }
+.hero h1 { font-size: clamp(2.6rem, 6vw, 5.6rem); line-height: .98; margin: 14px 0 22px; letter-spacing: -.05em; }
+.hero h1 span, .serif { font-family: "Playfair Display", serif; color: var(--forest); }
+.hero p { color: var(--muted); font-size: 1.18rem; line-height: 1.8; margin: 0 0 30px; max-width: 620px; }
+.actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.btn { border: 0; border-radius: 999px; padding: 15px 24px; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; transition: transform .2s, box-shadow .2s, background .2s; font-family: inherit; }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { color: white; background: linear-gradient(135deg, var(--forest), #257a58); box-shadow: 0 18px 40px rgba(15,61,46,.24); }
+.btn-secondary { color: var(--forest); background: white; border: 1px solid rgba(15,61,46,.1); }
+.trust-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 34px; }
+.trust-card { padding: 16px; border-radius: 18px; background: rgba(255,255,255,.72); border: 1px solid rgba(15,61,46,.08); box-shadow: 0 10px 30px rgba(15,61,46,.06); }
+.trust-card strong { display: block; color: var(--forest); font-size: 1.2rem; }
+.trust-card small { color: var(--muted); }
+
+.hero-visual { position: relative; min-height: 540px; }
+.product-orbit { position: absolute; inset: 42px 34px 0; border-radius: 48px; background: linear-gradient(145deg, #ffffff 0%, #edf6e8 100%); box-shadow: var(--shadow); overflow: hidden; border: 1px solid rgba(255,255,255,.8); }
+.product-orbit::before { content: ""; position: absolute; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(240,210,138,.82), rgba(201,154,58,.02) 66%); right: -120px; top: -80px; }
+.product-bottle { position: absolute; inset: 58px 72px; border-radius: 34px; background: linear-gradient(160deg, #184d3b, #082c21); box-shadow: 0 30px 70px rgba(15,61,46,.32); display: grid; place-items: center; transform: rotate(-4deg); }
+.product-label { width: 68%; min-height: 54%; padding: 34px 24px; border-radius: 28px; background: linear-gradient(180deg, #fffaf0, #f5e6bf); text-align: center; border: 1px solid rgba(201,154,58,.36); }
+.product-label .leaf { font-size: 2.5rem; }
+.product-label h3 { margin: 10px 0 4px; color: var(--forest); font-size: 1.75rem; }
+.product-label p { margin: 0; font-size: .92rem; line-height: 1.5; }
+.float-card { position: absolute; z-index: 2; padding: 16px 18px; border-radius: 20px; background: rgba(255,255,255,.84); box-shadow: 0 18px 50px rgba(15,61,46,.14); border: 1px solid rgba(255,255,255,.86); backdrop-filter: blur(12px); font-weight: 800; }
+.float-card small { display: block; color: var(--muted); font-weight: 600; }
+.float-card.one { top: 18px; left: 0; }
+.float-card.two { right: 0; bottom: 54px; }
+
+.benefits { padding: 54px 0; }
+.benefit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.benefit-card { background: white; border-radius: var(--radius-lg); padding: 24px; box-shadow: 0 14px 42px rgba(15,61,46,.08); border: 1px solid rgba(15,61,46,.07); }
+.benefit-icon { width: 48px; height: 48px; border-radius: 16px; display: grid; place-items: center; background: var(--mint); color: var(--forest); font-size: 1.4rem; margin-bottom: 14px; }
+.benefit-card h3 { margin: 0 0 8px; }
+.benefit-card p { margin: 0; color: var(--muted); line-height: 1.65; }
+
+.product { padding: 70px 0; }
+.product-panel { display: grid; grid-template-columns: .9fr 1.1fr; gap: 34px; align-items: stretch; background: linear-gradient(135deg, rgba(15,61,46,.98), rgba(22,83,63,.94)); color: white; border-radius: var(--radius-xl); padding: 28px; box-shadow: var(--shadow); overflow: hidden; position: relative; }
+.product-panel::after { content: ""; position: absolute; width: 420px; height: 420px; border-radius: 50%; background: rgba(240,210,138,.18); right: -160px; bottom: -180px; }
+.product-image { min-height: 420px; border-radius: 28px; background: linear-gradient(rgba(255,255,255,.12), rgba(255,255,255,.04)), url('https://images.unsplash.com/photo-1585386959984-a4155224a1f1?auto=format&fit=crop&w=900&q=80') center/cover; }
+.product-info { position: relative; z-index: 1; padding: 28px 18px; }
+.product-info h2 { font-size: clamp(2rem, 4vw, 3.6rem); line-height: 1.05; margin: 10px 0 16px; }
+.product-info p { color: rgba(255,255,255,.78); line-height: 1.8; font-size: 1.08rem; }
+.badges { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0; }
+.badge { padding: 8px 12px; border-radius: 999px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); font-weight: 700; }
+.purchase-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 22px; }
+.price { font-size: 2.4rem; font-weight: 900; color: var(--gold-2); }
+.old-price { color: rgba(255,255,255,.52); text-decoration: line-through; font-size: 1.1rem; margin-left: 8px; }
+.quantity { display: inline-flex; align-items: center; gap: 12px; padding: 8px; background: rgba(255,255,255,.1); border-radius: 999px; border: 1px solid rgba(255,255,255,.13); }
+.quantity button { width: 34px; height: 34px; border: 0; border-radius: 50%; cursor: pointer; color: var(--forest); background: white; font-weight: 900; }
+
+.cart { position: fixed; right: 22px; bottom: 22px; width: min(360px, calc(100% - 44px)); padding: 20px; border-radius: 26px; background: rgba(255,255,255,.92); box-shadow: 0 20px 70px rgba(15,61,46,.22); border: 1px solid rgba(15,61,46,.08); backdrop-filter: blur(16px); z-index: 9; transform: translateY(calc(100% - 72px)); transition: .28s ease; }
+.cart.open { transform: translateY(0); }
+.cart-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+.cart h3 { margin: 0; color: var(--forest); }
+.cart-count { background: var(--forest); color: white; border-radius: 999px; padding: 4px 10px; font-weight: 800; }
+#cart-items { color: var(--muted); margin: 16px 0; line-height: 1.6; }
+.cart-total { display: flex; justify-content: space-between; font-weight: 900; padding-top: 12px; border-top: 1px solid rgba(15,61,46,.08); }
+
+.reviews, .faq, .process { padding: 72px 0; text-align: center; }
+.review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; text-align: left; }
+.review-card, .step-card { background: white; border-radius: var(--radius-lg); padding: 24px; box-shadow: 0 14px 42px rgba(15,61,46,.08); border: 1px solid rgba(15,61,46,.07); }
+.stars { color: var(--gold); letter-spacing: 2px; }
+.review-card p { color: var(--muted); line-height: 1.75; }
+.reviewer { display: flex; align-items: center; gap: 12px; margin-top: 16px; font-weight: 800; }
+.avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--sage), var(--gold-2)); display: grid; place-items: center; color: var(--forest); }
+
+.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; text-align: left; }
+.step-num { width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; color: white; background: var(--forest); font-weight: 900; }
+.step-card p { color: var(--muted); line-height: 1.65; }
+
+.faq-list { max-width: 780px; margin: 0 auto; text-align: left; display: grid; gap: 12px; }
+.faq-item { background: white; border: 1px solid rgba(15,61,46,.08); border-radius: 20px; overflow: hidden; box-shadow: 0 12px 32px rgba(15,61,46,.06); }
+.faq-question { width: 100%; border: 0; background: transparent; padding: 20px 22px; text-align: left; display: flex; justify-content: space-between; align-items: center; font: inherit; font-weight: 800; color: var(--forest); cursor: pointer; }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height .24s ease; color: var(--muted); line-height: 1.7; padding: 0 22px; }
+.faq-item.active .faq-answer { max-height: 180px; padding-bottom: 20px; }
+
+.newsletter { margin: 52px auto 80px; padding: 34px; border-radius: var(--radius-xl); background: linear-gradient(135deg, #fff, #f1f8ec); border: 1px solid rgba(15,61,46,.08); box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; }
+.newsletter h2 { margin: 0 0 8px; }
+.newsletter p { margin: 0; color: var(--muted); }
+.newsletter form { display: flex; gap: 10px; }
+.newsletter input { width: 260px; border: 1px solid rgba(15,61,46,.12); border-radius: 999px; padding: 15px 18px; font: inherit; outline: 0; }
+.newsletter input:focus { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(201,154,58,.14); }
+
+footer { padding: 34px 0; background: #0a2a20; color: rgba(255,255,255,.72); }
+.footer-inner { display: flex; justify-content: space-between; gap: 18px; align-items: center; flex-wrap: wrap; }
+.footer-links { display: flex; gap: 16px; }
+.footer-links a { color: rgba(255,255,255,.76); text-decoration: none; }
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 110px); background: #102f25; color: white; padding: 14px 18px; border-radius: 999px; box-shadow: 0 16px 50px rgba(0,0,0,.18); transition: .25s; z-index: 20; }
+.toast.show { transform: translate(-50%, 0); }
+
+@media (max-width: 900px) {
+  nav { display: none; }
+  .hero-grid, .product-panel, .newsletter { grid-template-columns: 1fr; }
+  .hero-visual { min-height: 450px; }
+  .benefit-grid, .review-grid, .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .cart { transform: translateY(calc(100% - 68px)); }
+}
+@media (max-width: 620px) {
+  .container { width: min(100% - 28px, 1120px); }
+  .hero { padding-top: 42px; }
+  .trust-row, .benefit-grid, .review-grid, .process-grid { grid-template-columns: 1fr; }
+  .hero-visual { min-height: 380px; }
+  .product-orbit { inset: 22px 0 0; }
+  .product-bottle { inset: 48px 46px; }
+  .float-card { position: relative; inset: auto !important; display: inline-block; margin: 8px 8px 0 0; }
+  .newsletter form { flex-direction: column; }
+  .newsletter input { width: 100%; }
+}
+</style>
 </head>
 <body>
 
 <header class="navbar">
-  <div class="logo">VerdaLife</div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#product">Product</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#faq">FAQ</a>
-  </nav>
+  <div class="container navbar-inner">
+    <div class="logo"><span class="logo-mark">✦</span> VerdaLife</div>
+    <nav aria-label="Primary navigation">
+      <a href="#benefits">จุดเด่น</a>
+      <a href="#product">สินค้า</a>
+      <a href="#reviews">รีวิว</a>
+      <a href="#faq">FAQ</a>
+      <a class="nav-cta" href="#product">สั่งซื้อ</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero" data-aos="fade-up">
-  <h1>สวัสดีปีใหม่ไทยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยยย</h1>
-  <p>555555555555555555555555555555555555555555555555555555</p>
-  <button onclick="scrollToProduct()">Shop Now</button>
-</section>
-
-<section class="product" id="product" data-aos="fade-up">
-  <div class="product-card">
-    <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1f1">
-    <h2>Turmeric Premium Extract</h2>
-    <p>Supports digestion & overall wellness.</p>
-    <div class="price">฿890</div>
-    <button onclick="addToCart()">Add to Cart</button>
-  </div>
-</section>
-
-<!-- Cart -->
-<div class="cart">
-  <h3>Cart</h3>
-  <div id="cart-items"></div>
-  <button onclick="checkout()">ซื้ออออออออออออออออออออออออออออออออออออออออออออออออออ</button>
-</div>
-
-<!-- Reviews Slider -->
-<section id="reviews">
-  <h2>Customer Reviews</h2>
-  <div class="slider">
-    <div class="slide active">⭐️⭐️⭐️⭐️⭐️ ดีมาก รู้สึกดีขึ้นใน 2 สัปดาห์</div>
-    <div class="slide">⭐️⭐️⭐️⭐️ ส่งเร็ว แพ็คเกจพรีเมียม</div>
-    <div class="slide">⭐️⭐️⭐️⭐️⭐️ คุณภาพระดับสากล</div>
-  </div>
-</section>
-
-<!-- FAQ Accordion -->
-<section id="faq">
-  <h2>FAQ</h2>
-  <div class="accordion">
-    <div class="faq-item">
-      <button class="faq-question">ปลอดภัยไหม?</button>
-      <div class="faq-answer">ผลิตตามมาตรฐานสากล</div>
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Premium Herbal Wellness</div>
+        <h1>ดูแลสุขภาพทุกวันด้วย <span>ขมิ้นชันสกัดพรีเมี่ยม</span></h1>
+        <p>VerdaLife คัดสรรสารสกัดสมุนไพรคุณภาพสูง บรรจุภัณฑ์หรูหรา ใช้งานง่าย และออกแบบเพื่อไลฟ์สไตล์ของคนที่ใส่ใจสุขภาพอย่างจริงจัง</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#product">เลือกแพ็กเกจวันนี้ →</a>
+          <a class="btn btn-secondary" href="#benefits">ดูคุณประโยชน์</a>
+        </div>
+        <div class="trust-row" aria-label="Brand highlights">
+          <div class="trust-card"><strong>95%</strong><small>ลูกค้ากลับมาซื้อซ้ำ</small></div>
+          <div class="trust-card"><strong>GMP</strong><small>ผลิตตามมาตรฐานสากล</small></div>
+          <div class="trust-card"><strong>1-2 วัน</strong><small>จัดส่งรวดเร็วทั่วไทย</small></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="VerdaLife product visual">
+        <div class="float-card one">Natural Extract <small>สารสกัดจากธรรมชาติ</small></div>
+        <div class="product-orbit">
+          <div class="product-bottle">
+            <div class="product-label">
+              <div class="leaf">🌿</div>
+              <h3>VerdaLife</h3>
+              <p>Turmeric Premium Extract<br>30 Capsules</p>
+            </div>
+          </div>
+        </div>
+        <div class="float-card two">Lab Tested <small>ตรวจสอบคุณภาพทุกล็อต</small></div>
+      </div>
     </div>
-    <div class="faq-item">
-      <button class="faq-question">จัดส่งกี่วัน?</button>
-      <div class="faq-answer">1-2 วันทั่วประเทศ</div>
+  </section>
+
+  <section class="benefits" id="benefits">
+    <div class="container">
+      <div class="eyebrow">Why VerdaLife</div>
+      <h2 class="section-title">ประสบการณ์สุขภาพที่ดูพรีเมี่ยมตั้งแต่หน้าเว็บถึงมือคุณ</h2>
+      <div class="benefit-grid">
+        <article class="benefit-card"><div class="benefit-icon">🍃</div><h3>สารสกัดเข้มข้น</h3><p>คัดเลือกวัตถุดิบคุณภาพสูง เพื่อสนับสนุนการดูแลสุขภาพประจำวัน</p></article>
+        <article class="benefit-card"><div class="benefit-icon">🧪</div><h3>ตรวจสอบคุณภาพ</h3><p>กระบวนการผลิตสะอาด มีการควบคุมมาตรฐานในทุกขั้นตอน</p></article>
+        <article class="benefit-card"><div class="benefit-icon">🎁</div><h3>แพ็กเกจหรู</h3><p>ดีไซน์มินิมอล เหมาะสำหรับซื้อใช้เองหรือมอบเป็นของขวัญ</p></article>
+        <article class="benefit-card"><div class="benefit-icon">💬</div><h3>ดูแลหลังการขาย</h3><p>ทีมผู้เชี่ยวชาญพร้อมให้คำแนะนำการรับประทานอย่างเหมาะสม</p></article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="product" id="product">
+    <div class="container product-panel">
+      <div class="product-image" role="img" aria-label="Turmeric Premium Extract product"></div>
+      <div class="product-info">
+        <div class="eyebrow">Signature Formula</div>
+        <h2>Turmeric Premium Extract</h2>
+        <p>สูตรดูแลสมดุลร่างกายสำหรับทุกวัน ช่วยสนับสนุนระบบย่อยอาหารและความสบายตัว เหมาะสำหรับคนทำงานที่ต้องการเริ่มต้นดูแลตัวเองแบบมีคุณภาพ</p>
+        <div class="badges">
+          <span class="badge">30 Capsules</span>
+          <span class="badge">No Added Sugar</span>
+          <span class="badge">Vegan Friendly</span>
+        </div>
+        <div class="purchase-row">
+          <div><span class="price">฿890</span><span class="old-price">฿1,190</span></div>
+          <div class="quantity" aria-label="Quantity selector">
+            <button type="button" onclick="changeQty(-1)" aria-label="Decrease quantity">−</button>
+            <strong id="qty">1</strong>
+            <button type="button" onclick="changeQty(1)" aria-label="Increase quantity">+</button>
+          </div>
+          <button class="btn btn-primary" type="button" onclick="addToCart()">เพิ่มลงตะกร้า</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="cart" id="cart" aria-live="polite">
+    <div class="cart-header" onclick="toggleCart()">
+      <h3>ตะกร้าสินค้า</h3>
+      <span class="cart-count" id="cart-count">0</span>
+    </div>
+    <div id="cart-items">ยังไม่มีสินค้าในตะกร้า</div>
+    <div class="cart-total"><span>รวม</span><span id="cart-total">฿0</span></div>
+    <button class="btn btn-primary" style="width:100%; margin-top:16px" onclick="checkout()">ชำระเงินอย่างปลอดภัย</button>
+  </aside>
+
+  <section class="process" id="process">
+    <div class="container">
+      <div class="eyebrow">Simple Routine</div>
+      <h2 class="section-title">เริ่มดูแลตัวเองใน 3 ขั้นตอน</h2>
+      <p class="section-lead">ออกแบบ UX ให้ผู้ใช้เข้าใจคุณค่า เลือกสินค้า และชำระเงินได้ง่ายขึ้น</p>
+      <div class="process-grid">
+        <article class="step-card"><div class="step-num">1</div><h3>เลือกจำนวน</h3><p>เลือกแพ็กเกจที่เหมาะกับเป้าหมายสุขภาพและไลฟ์สไตล์ของคุณ</p></article>
+        <article class="step-card"><div class="step-num">2</div><h3>รับคำแนะนำ</h3><p>อ่านข้อมูลสินค้า คำถามที่พบบ่อย และรีวิวจากลูกค้าที่ใช้งานจริง</p></article>
+        <article class="step-card"><div class="step-num">3</div><h3>จัดส่งรวดเร็ว</h3><p>แพ็กสินค้าอย่างพิถีพิถัน พร้อมจัดส่งถึงบ้านภายใน 1-2 วันทำการ</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="eyebrow">Customer Love</div>
+      <h2 class="section-title">รีวิวจากลูกค้าที่ไว้วางใจ VerdaLife</h2>
+      <div class="review-grid">
+        <article class="review-card"><div class="stars">★★★★★</div><p>“แพ็กเกจสวยมาก ดูพรีเมี่ยม และรับประทานง่าย รู้สึกสบายท้องขึ้นหลังใช้ต่อเนื่อง”</p><div class="reviewer"><span class="avatar">อ</span>อริสา</div></article>
+        <article class="review-card"><div class="stars">★★★★★</div><p>“เว็บใช้งานง่าย ข้อมูลครบ ตัดสินใจซื้อได้มั่นใจ ส่งเร็วและกล่องดูดีมาก”</p><div class="reviewer"><span class="avatar">ก</span>กิตติ</div></article>
+        <article class="review-card"><div class="stars">★★★★★</div><p>“ชอบที่มีคำถามตอบชัดเจน เหมาะกับคนเริ่มดูแลสุขภาพแบบจริงจัง”</p><div class="reviewer"><span class="avatar">ม</span>มินตรา</div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title">คำถามที่พบบ่อย</h2>
+      <div class="faq-list">
+        <div class="faq-item active">
+          <button class="faq-question" type="button">เหมาะกับใคร? <span>+</span></button>
+          <div class="faq-answer">เหมาะสำหรับผู้ที่ต้องการดูแลสุขภาพประจำวัน โดยเฉพาะคนทำงานที่ต้องการตัวช่วยสนับสนุนระบบย่อยอาหารและความสบายตัว</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">รับประทานอย่างไร? <span>+</span></button>
+          <div class="faq-answer">แนะนำวันละ 1 แคปซูลหลังอาหาร หรือตามคำแนะนำบนฉลากผลิตภัณฑ์ หากมีโรคประจำตัวควรปรึกษาผู้เชี่ยวชาญก่อนใช้</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">จัดส่งกี่วัน? <span>+</span></button>
+          <div class="faq-answer">จัดส่งภายใน 1-2 วันทำการสำหรับพื้นที่ส่วนใหญ่ในประเทศไทย พร้อมเลขติดตามพัสดุหลังชำระเงิน</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container newsletter" aria-label="Newsletter signup">
+    <div>
+      <div class="eyebrow">Wellness Club</div>
+      <h2>รับเคล็ดลับสุขภาพและโปรโมชันพิเศษ</h2>
+      <p>สมัครรับข่าวสารเพื่อไม่พลาดบทความสุขภาพและดีลสำหรับสมาชิก</p>
+    </div>
+    <form onsubmit="subscribe(event)">
+      <input type="email" placeholder="your@email.com" aria-label="Email address" required>
+      <button class="btn btn-primary" type="submit">สมัครสมาชิก</button>
+    </form>
+  </section>
+</main>
 
 <footer>
-© 2026 VerdaLife Premium Herbal
+  <div class="container footer-inner">
+    <div>© 2026 VerdaLife Premium Herbal. All rights reserved.</div>
+    <div class="footer-links"><a href="#faq">FAQ</a><a href="#product">Shop</a><a href="#reviews">Reviews</a></div>
+  </div>
 </footer>
 
-<script src="https://js.stripe.com/v3/"></script>
-<script src="script.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
+<div class="toast" id="toast">เพิ่มสินค้าในตะกร้าแล้ว</div>
 
+<script>
+const PRICE = 890;
+let qty = 1;
+let cartQty = 0;
+
+function formatTHB(value) {
+  return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB', maximumFractionDigits: 0 }).format(value);
+}
+
+function changeQty(delta) {
+  qty = Math.max(1, Math.min(12, qty + delta));
+  document.getElementById('qty').textContent = qty;
+}
+
+function addToCart() {
+  cartQty += qty;
+  updateCart();
+  document.getElementById('cart').classList.add('open');
+  showToast(`เพิ่ม Turmeric Premium Extract ${qty} ชิ้นลงตะกร้าแล้ว`);
+}
+
+function updateCart() {
+  document.getElementById('cart-count').textContent = cartQty;
+  document.getElementById('cart-items').textContent = cartQty
+    ? `Turmeric Premium Extract × ${cartQty}`
+    : 'ยังไม่มีสินค้าในตะกร้า';
+  document.getElementById('cart-total').textContent = formatTHB(cartQty * PRICE);
+}
+
+function toggleCart() {
+  document.getElementById('cart').classList.toggle('open');
+}
+
+function checkout() {
+  if (!cartQty) {
+    showToast('กรุณาเพิ่มสินค้าในตะกร้าก่อนชำระเงิน');
+    return;
+  }
+  showToast('กำลังพาไปหน้าชำระเงินที่ปลอดภัย');
+}
+
+function subscribe(event) {
+  event.preventDefault();
+  event.target.reset();
+  showToast('สมัครสมาชิกเรียบร้อย ขอบคุณค่ะ');
+}
+
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(window.toastTimer);
+  window.toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+}
+
+document.querySelectorAll('.faq-question').forEach((button) => {
+  button.addEventListener('click', () => {
+    button.closest('.faq-item').classList.toggle('active');
+  });
+});
+</script>
 </body>
-
 </html>
-
